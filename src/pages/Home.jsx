@@ -7,11 +7,12 @@ import Product from '../components/Product'
 import { useLoaderData } from 'react-router-dom'
 
 const Home = () => {
-	const [products, setProducts] = useState()
+	const [products, setProducts] = useState([])
 	const data = useLoaderData()
 	useEffect(() => {
 		setProducts(data.data)
 	}, [data])
+	// console.log(products)
 
 	return (
 		<div>
