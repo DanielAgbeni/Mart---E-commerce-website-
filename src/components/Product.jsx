@@ -19,7 +19,7 @@ const Product = ({ products }) => {
 					architecto sequi doloribus quas.
 				</p>
 			</div>
-			<div className='max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-10'>
+			<div className='max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-10 md:grid-cols-2 md:gap-2'>
 				{products
 					? products.map((item) => (
 							<ProductCard key={item._id} product={item} />

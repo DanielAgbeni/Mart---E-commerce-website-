@@ -3,8 +3,14 @@
 import axios from 'axios'
 
 export async function productData() {
-	const product = await axios.get(
-		'https://fakestoreapiserver.reactbd.com/products'
-	)
+	try {
+		const product = await axios.get(
+			'https://fakestoreapiserver.reactbd.com/products'
+		)
+		return product
+	} catch (err) {
+		console.log(err)
+	}
+
 	return product
 }

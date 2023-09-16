@@ -27,7 +27,7 @@ const Banner = () => {
 					className='w-screen h-full flex transition-transform-duration-3000 '>
 					<motion.img
 						whileHover={{ scale: 1.0 }}
-						className='w-screen h-full object-cover overflow-hidden hover:cursor-pointer'
+						className='w-screen h-full object-cover overflow-hidden hover:cursor-pointer md:h-[20%] md:w-auto'
 						src={imgData[currentSlide]}
 						alt='bannerImg'
 						loading='priority'

@@ -69,7 +69,7 @@ const Header = () => {
 				</div>
 			</div>
 			{/* mobile view */}
-			<div className='flex items-center justify-between md:hidden w-screen h-full mx-1'>
+			<div className='flex items-center justify-between md:hidden w-screen h-full mx-0'>
 				<Link to={'/cart'}>
 					<div className='relative'>
 						<MdShoppingCart className='w-8 h-8 cursor-pointer' />
@@ -82,7 +82,7 @@ const Header = () => {
 					<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
 					<img src={Logo} alt='' className='h-10 w-10' />
 				</div>
-				<div className='flex items-center'>
+				<div className='flex items-center ml-2'>
 					<MdMenu className='text-3xl' onClick={toggleMenu} />
 				</div>
 				{menu && (
@@ -101,27 +101,32 @@ const Header = () => {
 								// title={user ? user.displayName : 'Not Signed in'}
 							/>
 						</Link>
+						<p className='item-center justify-center mx-auto'>Daniel Agbeni</p>
 						<ul className='flex flex-col gap-1 '>
 							<Link to={'/'}>
 								<li
 									className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'>
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
+									onClick={() => setMenu(false)}>
 									Home
 								</li>
 							</Link>
 							<li
 								className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'>
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
+								onClick={() => setMenu(false)}>
 								Pages
 							</li>
 							<li
 								className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'>
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
+								onClick={() => setMenu(false)}>
 								Shop
 							</li>
 							<li
 								className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'>
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
+								onClick={() => setMenu(false)}>
 								Element
 							</li>
 						</ul>
