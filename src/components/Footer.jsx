@@ -25,7 +25,7 @@ import {
 const Footer = () => {
 	const onSubmit = () => {}
 	return (
-		<div className='bg-black text-[#949494] py-20 font-bodyFont'>
+		<div className='bg-black text-[#949494] py-20 font-bodyFont md:w-screen'>
 			<div className='max-w-screen-xl mx-auto grid grid-cols-4'>
 				<div className='flex flex-col gap-2'>
 					<div className='flex items-center'>

@@ -20,9 +20,11 @@ const Product = ({ products }) => {
 				</p>
 			</div>
 			<div className='max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-10'>
-				{products.map((item) => (
-					<ProductCard key={item._id} product={item} />
-				))}
+				{products
+					? products.map((item) => (
+							<ProductCard key={item._id} product={item} />
+					  ))
+					: 'Nothing to show'}
 			</div>
 		</div>
 	)

@@ -20,7 +20,7 @@ const Banner = () => {
 	// console.log(currentSlide)
 	const imgData = [bannerImgOne, bannerImgTwo, bannerImgThree]
 	return (
-		<div className='w-full h-auto overflow-x-hidden'>
+		<div className='w-full h-auto overflow-x-hidden md:w-screen'>
 			<div className='w-screen h-full relative'>
 				<motion.div
 					// style={{ transform: `translateX(-${currentSlide * 100}vh)` }}
