@@ -25,10 +25,10 @@ import {
 const Footer = () => {
 	const onSubmit = () => {}
 	return (
-		<div className='bg-black text-[#949494] py-20 font-bodyFont md:w-screen'>
-			<div className='max-w-screen-xl mx-auto grid grid-cols-4'>
+		<div className='bg-black text-[#949494] py-20 font-bodyFont md:w-screen px-5'>
+			<div className='max-w-screen-xl mx-auto grid lg:grid-cols-4 md:grid-cols-1 md:justify-center md:items-center'>
 				<div className='flex flex-col gap-2'>
-					<div className='flex items-center'>
+					<div className='flex items-center mx-auto mt-4'>
 						<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
 						<img src={Logo} alt='' className='w-10' />
 					</div>
@@ -43,7 +43,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className='flex flex-col gap-2 '>
-					<h2 className='text-xl font-bold text-white font-bodyFont mb-4'>
+					<h2 className='text-xl font-bold text-white font-bodyFont mb-4 mx-auto mt-4'>
 						Locate Us
 					</h2>
 					<div className='text-base flex flex-col gap-2'>
@@ -63,7 +63,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className='flex flex-col gap-2 '>
-					<h2 className='text-xl font-bold text-white font-bodyFont mb-4'>
+					<h2 className='text-xl font-bold text-white font-bodyFont mb-4 mx-auto mt-4'>
 						Profile
 					</h2>
 					<div className='text-base flex flex-col gap-2'>
@@ -85,7 +85,7 @@ const Footer = () => {
 						</p>
 					</div>
 				</div>
-				<div className='flex flex-col gap-0 my-auto'>
+				<div className='flex flex-col gap-0 my-auto mt-4'>
 					<input
 						type='email'
 						placeholder='e-mail'

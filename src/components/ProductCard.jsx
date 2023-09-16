@@ -2,12 +2,25 @@
 
 import React from 'react'
 import { FaCartPlus } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({ product }) => {
+	const navigate = useNavigate()
+	const id = product.title
+	const handleDetails = () => {
+		const idString = id.toLowerCase().split(' ').join('')
+		navigate(`/item/${idString}`, {
+			state: {
+				item: product,
+			},
+		})
+	}
 	// console.log(product)
 	return (
-		<div className='group'>
-			<div className='w-full h-96 cursor-pointer overflow-hidden'>
+		<div className='group relative'>
+			<div
+				className='w-full h-96 cursor-pointer overflow-hidden'
+				onClick={handleDetails}>
 				<img
 					className='w-full h-full object-cover group-hover:scale-110 duration-500'
 					src={product.image}
@@ -30,6 +43,16 @@ const ProductCard = ({ product }) => {
 							<FaCartPlus className='text-xl hover:text-2xl duration-500 md:text-2xl' />
 						</p>
 					</div>
+				</div>
+				<div>
+					<p>{product.category}</p>
+				</div>
+				<div className='absolute top-4 right-0'>
+					{product.isNew && (
+						<p className='bg-black text-white font-semibold font-bodyFont px-6 py-1'>
+							Sale
+						</p>
+					)}
 				</div>
 			</div>
 		</div>

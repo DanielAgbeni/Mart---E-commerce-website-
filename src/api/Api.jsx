@@ -1,12 +1,11 @@
 /** @format */
 
 import axios from 'axios'
+import { shop } from './data'
 
 export async function productData() {
 	try {
-		const product = await axios.get(
-			'https://fakestoreapiserver.reactbd.com/products'
-		)
+		const product = shop
 		return product
 	} catch (err) {
 		product = 'Network Disconnected'

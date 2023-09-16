@@ -9,10 +9,12 @@ import {
 	MdAdd,
 	MdLogin,
 	MdMenu,
+	MdAddBox,
 } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaHamburger } from 'react-icons/fa'
+import { categories } from '../api/data'
 
 const Header = () => {
 	const [menu, setMenu] = useState(false)
@@ -38,18 +40,38 @@ const Header = () => {
 						<li
 							className='text-base text-black
 						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>
-							Pages
+							<select
+								name=''
+								id=''
+								className='border-2 border-gray-200 bg-gray-200 w-fit'>
+								<option
+									value='other'
+									className='text-base text-black outline-none border-hidden'>
+									Select Category
+								</option>
+								{categories &&
+									categories.map((item) => (
+										<option
+											key={item.id}
+											className='text-base border-hidden outline-none capitalize bg-white text-headingColor w-fit'
+											value={item.urlParamName}>
+											{item.name}
+										</option>
+									))}
+							</select>
 						</li>
 						<li
 							className='text-base text-black
 						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>
 							Shop
 						</li>
-						<li
-							className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>
-							Element
-						</li>
+						<Link to={'/additem'}>
+							<li
+								className='text-black
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 text-2xl'>
+								<MdAddBox />
+							</li>
+						</Link>
 					</ul>
 					<Link to={'/cart'}>
 						<div className='relative'>
@@ -71,16 +93,18 @@ const Header = () => {
 			{/* mobile view */}
 			<div className='flex items-center justify-between md:hidden w-screen h-full mx-0 px-2'>
 				<Link to={'/cart'}>
-					<div className='relative'>
+					<div className='relative' onClick={() => setMenu(false)}>
 						<MdShoppingCart className='w-8 h-8 cursor-pointer' />
 						<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
 							<p className='text-xm text-white font-semibold'>6</p>
 						</div>
 					</div>
 				</Link>
-				<div className='flex items-center'>
+				<div className='flex items-center' onClick={() => setMenu(false)}>
 					<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
-					<img src={Logo} alt='' className='h-10 w-10' />
+					<Link to={'/'}>
+						<img src={Logo} alt='' className='h-10 w-10' />
+					</Link>
 				</div>
 				<div className='flex items-center ml-2'>
 					<MdMenu className='text-3xl' onClick={toggleMenu} />
@@ -113,9 +137,26 @@ const Header = () => {
 							</Link>
 							<li
 								className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
-								onClick={() => setMenu(false)}>
-								Pages
+						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'>
+								<select
+									name=''
+									id=''
+									className='border-0 outline-none bg-gray-50'>
+									<option
+										value='other'
+										className='text-base text-black border-0 outline-none font-bold'>
+										Select Category
+									</option>
+									{categories &&
+										categories.map((item) => (
+											<option
+												key={item.id}
+												className='text-base border-0 outline-none capitalize bg-white text-headingColor'
+												value={item.urlParamName}>
+												{item.name}
+											</option>
+										))}
+								</select>
 							</li>
 							<li
 								className='text-base text-black
@@ -123,12 +164,14 @@ const Header = () => {
 								onClick={() => setMenu(false)}>
 								Shop
 							</li>
-							<li
-								className='text-base text-black
+							<Link to={'/additem'}>
+								<li
+									className='text-base text-black
 						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
-								onClick={() => setMenu(false)}>
-								Element
-							</li>
+									onClick={() => setMenu(false)}>
+									Add Item
+								</li>
+							</Link>
 						</ul>
 					</motion.div>
 				)}

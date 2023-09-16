@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ProductCard from './ProductCard'
+import { shop } from '../api/data'
 
 const Product = ({ products }) => {
 	// console.log(products)
@@ -20,8 +21,8 @@ const Product = ({ products }) => {
 				</p>
 			</div>
 			<div className='max-w-screen-xl mx-auto py-10 grid lg:grid-cols-4 gap-10 md:grid-cols-2 md:gap-2'>
-				{products.map((item) => (
-					<ProductCard key={item._id} product={item} />
+				{shop.map((item) => (
+					<ProductCard key={item.id} product={item} />
 				))}
 			</div>
 		</div>
