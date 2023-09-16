@@ -9,7 +9,7 @@ export async function productData() {
 		)
 		return product
 	} catch (err) {
-		console.log(err)
+		product = 'Network Disconnected'
 	}
 
 	return product

@@ -21,13 +21,13 @@ const Banner = () => {
 	const imgData = [bannerImgOne, bannerImgTwo, bannerImgThree]
 	return (
 		<div className='w-full h-auto overflow-x-hidden md:w-screen'>
-			<div className='w-screen h-full relative'>
+			<div className='w-screen h-full relative md:h-[40%]'>
 				<motion.div
 					// style={{ transform: `translateX(-${currentSlide * 100}vh)` }}
 					className='w-screen h-full flex transition-transform-duration-3000 '>
 					<motion.img
 						whileHover={{ scale: 1.0 }}
-						className='w-screen h-full object-cover overflow-hidden hover:cursor-pointer md:h-[20%] md:w-auto'
+						className='w-screen h-full object-cover overflow-hidden hover:cursor-pointer md:h-[40%] md:w-auto'
 						src={imgData[currentSlide]}
 						alt='bannerImg'
 						loading='priority'

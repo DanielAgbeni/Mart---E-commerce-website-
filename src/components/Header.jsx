@@ -69,7 +69,7 @@ const Header = () => {
 				</div>
 			</div>
 			{/* mobile view */}
-			<div className='flex items-center justify-between md:hidden w-screen h-full mx-0'>
+			<div className='flex items-center justify-between md:hidden w-screen h-full mx-0 px-2'>
 				<Link to={'/cart'}>
 					<div className='relative'>
 						<MdShoppingCart className='w-8 h-8 cursor-pointer' />

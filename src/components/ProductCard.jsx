@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
 							<p className='font-semibold'>${product.price}</p>
 						</div>
 						<p className='cursor-pointer flex items-center'>
-							<FaCartPlus className='text-xl hover:text-2xl duration-500' />
+							<FaCartPlus className='text-xl hover:text-2xl duration-500 md:text-2xl' />
 						</p>
 					</div>
 				</div>
