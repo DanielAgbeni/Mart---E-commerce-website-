@@ -47,5 +47,6 @@ export const martSlice = createSlice({
 		},
 	},
 })
-export const { addToCart } = martSlice.actions
+export const { addToCart, deleteItem, resetCart, increamentQty, decrementQty } =
+	martSlice.actions
 export default martSlice.reducer
