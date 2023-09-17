@@ -15,12 +15,16 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 import { categories } from '../api/data'
+import { useSelector } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 
 const Header = () => {
 	const [menu, setMenu] = useState(false)
 	const toggleMenu = () => {
 		setMenu(!menu)
 	}
+	const productData = useSelector((state) => state.mart.productData)
+	console.log(productData)
 	return (
 		<div className='w-full h-20 bg-gray-200 border-b-[1px] border-b-gray-800 font-bodyFont sticky top-0 z-10 md:w-screen'>
 			<div className='max-w-screen-xl h-full mx-auto hidden md:flex items-center justify-between'>
@@ -77,7 +81,9 @@ const Header = () => {
 						<div className='relative'>
 							<MdShoppingCart className='w-8 h-8 cursor-pointer' />
 							<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
-								<p className='text-xm text-white font-semibold'>6</p>
+								<p className='text-xm text-white font-semibold'>
+									{productData.length}
+								</p>
 							</div>
 						</div>
 					</Link>
@@ -90,13 +96,16 @@ const Header = () => {
 					</Link>
 				</div>
 			</div>
+
 			{/* mobile view */}
 			<div className='flex items-center justify-between md:hidden w-screen h-full mx-0 px-2'>
 				<Link to={'/cart'}>
 					<div className='relative' onClick={() => setMenu(false)}>
 						<MdShoppingCart className='w-8 h-8 cursor-pointer' />
 						<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
-							<p className='text-xm text-white font-semibold'>6</p>
+							<p className='text-xm text-white font-semibold'>
+								{productData.length}
+							</p>
 						</div>
 					</div>
 				</Link>

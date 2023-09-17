@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 import { FaCartPlus, FaMinus, FaPlus, FaStar } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
+import { addToCart } from '../redux/martSlice'
 
 const Item = () => {
 	const [details, setDetails] = useState({})
@@ -12,21 +15,19 @@ const Item = () => {
 		setDetails(location.state.item)
 	}, [])
 	// console.log(details)
-	let qty
+	let [qty, setQty] = useState(1)
 
 	const qtyMinus = () => {
-		// let qty
-		qty == 1 ? 1 : qty--
-		console.log(qty)
+		setQty(qty == 1 ? 1 : qty - 1)
 	}
 	const qtyAdd = () => {
-		// let qty
-		return qty++
+		setQty(qty + 1)
 	}
-	console.log(qty)
+	// console.log(qty)
+	const dispatch = useDispatch()
 	return (
 		<div>
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full px-2 py-6'>
 				<div className='w-full relative'>
 					<img
 						src={details.image}
@@ -57,31 +58,55 @@ const Item = () => {
 					<p>{details.description}</p>
 					<div className=''>
 						<div className='flex items-center gap-4'>
-							<p className='text-sm'>Quantity</p>
+							<p className='text-xl'>Quantity</p>
 							<div className='flex items-center gap-4'>
 								<button onClick={qtyMinus}>
 									<FaMinus className='active:text-white active:bg-black' />{' '}
 								</button>
-								<p>{qty}</p>
+								<p className='font-bold'>{qty}</p>
 								<button onClick={qtyAdd}>
 									<FaPlus className='active:text-white active:bg-black' />{' '}
 								</button>
 							</div>
 							<motion.div
 								className='py-2 px-6 bg-black cursor-pointer'
-								whileTap={{ scale: 1.1 }}>
+								whileTap={{ scale: 1.1 }}
+								onClick={() =>
+									dispatch(
+										addToCart({
+											id: details.id,
+											title: details.title,
+											image: details.image,
+											price: details.price,
+											quantity: qty,
+											description: details.description,
+										})
+									) & toast.success(`${details.title} is added`)
+								}>
 								<p>
 									<FaCartPlus className='text-white' />{' '}
 								</p>
 							</motion.div>
 						</div>
 					</div>
-					<div className='flex items-center gap-2'>
-						<p>Category:</p>
-						<p className='font-bold'>{details.category}</p>
+					<div className='flex items-center gap-2 sm:mb-10'>
+						<p className='text-xl'>Category:</p>
+						<p className='font-bold text-xl'>{details.category}</p>
 					</div>
 				</div>
 			</div>
+			<ToastContainer
+				position='top-left'
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme='dark'
+			/>
 		</div>
 	)
 }

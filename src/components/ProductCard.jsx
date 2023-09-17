@@ -2,9 +2,13 @@
 
 import React from 'react'
 import { FaCartPlus } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { addToCart } from '../redux/martSlice'
+import { ToastContainer, toast } from 'react-toastify'
 
 const ProductCard = ({ product }) => {
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const id = product.title
 	const handleDetails = () => {
@@ -39,7 +43,20 @@ const ProductCard = ({ product }) => {
 							<p className='line-through text-gray-500'>${product.oldPrice}</p>
 							<p className='font-semibold'>${product.price}</p>
 						</div>
-						<p className='cursor-pointer flex items-center'>
+						<p
+							className='cursor-pointer flex items-center'
+							onClick={() =>
+								dispatch(
+									addToCart({
+										id: product.id,
+										title: product.title,
+										image: product.image,
+										price: product.price,
+										quantity: 1,
+										description: product.description,
+									})
+								) & toast.success(`${product.title} is added`)
+							}>
 							<FaCartPlus className='text-xl hover:text-2xl duration-500 md:text-2xl' />
 						</p>
 					</div>
@@ -55,6 +72,18 @@ const ProductCard = ({ product }) => {
 					)}
 				</div>
 			</div>
+			<ToastContainer
+				position='top-left'
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme='dark'
+			/>
 		</div>
 	)
 }

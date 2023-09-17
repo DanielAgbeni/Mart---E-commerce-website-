@@ -15,6 +15,7 @@ import Cart from './pages/Cart'
 import Signin from './pages/Signin'
 import { productData } from './api/Api'
 import Item from './components/Item'
+import 'react-toastify/dist/ReactToastify.css'
 const Layout = () => {
 	return (
 		<div className='bg-gray-100'>
