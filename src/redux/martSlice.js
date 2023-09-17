@@ -26,6 +26,25 @@ export const martSlice = createSlice({
 				(item) => item.id !== action.payload
 			)
 		},
+		resetCart: (state) => {
+			state.productData = []
+		},
+		increamentQty: (state, action) => {
+			const item = state.productData.find(
+				(item) => item.id === action.payload.id
+			)
+			if (item) {
+				item.quantity++
+			}
+		},
+		decrementQty: (state, action) => {
+			const item = state.productData.find(
+				(item) => item.id === action.payload.id
+			)
+			if (item) {
+				item.quantity == 1 ? 1 : item.quantity--
+			}
+		},
 	},
 })
 export const { addToCart } = martSlice.actions

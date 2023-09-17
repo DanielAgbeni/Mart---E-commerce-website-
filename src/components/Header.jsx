@@ -80,11 +80,15 @@ const Header = () => {
 					<Link to={'/cart'}>
 						<div className='relative'>
 							<MdShoppingCart className='w-8 h-8 cursor-pointer' />
-							<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
-								<p className='text-xm text-white font-semibold'>
-									{productData.length}
-								</p>
-							</div>
+							{productData.length < 1 ? (
+								''
+							) : (
+								<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
+									<p className='text-xm text-white font-semibold'>
+										{productData.length}
+									</p>
+								</div>
+							)}
 						</div>
 					</Link>
 					<Link to={'/signin'}>
@@ -102,11 +106,15 @@ const Header = () => {
 				<Link to={'/cart'}>
 					<div className='relative' onClick={() => setMenu(false)}>
 						<MdShoppingCart className='w-8 h-8 cursor-pointer' />
-						<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
-							<p className='text-xm text-white font-semibold'>
-								{productData.length}
-							</p>
-						</div>
+						{productData.length < 1 ? (
+							''
+						) : (
+							<div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-700 flex items-center justify-center '>
+								<p className='text-xm text-white font-semibold'>
+									{productData.length}
+								</p>
+							</div>
+						)}
 					</div>
 				</Link>
 				<div className='flex items-center' onClick={() => setMenu(false)}>
