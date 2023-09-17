@@ -1,7 +1,13 @@
 /** @format */
 
 import React, { useState } from 'react'
-import { MdDelete, MdFileUpload, MdOutlineMoney, MdShop } from 'react-icons/md'
+import {
+	MdDelete,
+	MdDescription,
+	MdFileUpload,
+	MdOutlineMoney,
+	MdShop,
+} from 'react-icons/md'
 import { categories } from '../api/data'
 import Loading from './Loading'
 import { FaMoneyBill } from 'react-icons/fa'
@@ -11,6 +17,7 @@ const NewItem = () => {
 	const [title, setTitle] = useState('')
 	const [price, setPrice] = useState('')
 	const [category, setCategory] = useState(null)
+	const [description, setDescription] = useState('')
 	const [imageAsset, setImageAsset] = useState(null)
 	const [fields, setFields] = useState(false)
 	const [alertStatus, setAlertStatus] = useState('danger')
@@ -130,6 +137,17 @@ const NewItem = () => {
 							className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'
 						/>
 					</div>
+				</div>
+				<div className='w-full h-14 py-2 border-b border-gray-300 flex items-center gap-2'>
+					<MdDescription className='text-xl text-gray-700' />
+					<input
+						type='text'
+						required
+						value={description}
+						onChange={(e) => setTitle(e.target.value)}
+						placeholder='Description'
+						className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor'
+					/>
 				</div>
 
 				<div className='flex items-center w-full'>

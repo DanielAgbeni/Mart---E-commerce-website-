@@ -13,7 +13,7 @@ import {
 } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaHamburger } from 'react-icons/fa'
+
 import { categories } from '../api/data'
 
 const Header = () => {

@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
 				<div className='absolute top-4 right-0'>
 					{product.isNew && (
 						<p className='bg-black text-white font-semibold font-bodyFont px-6 py-1'>
-							Sale
+							New
 						</p>
 					)}
 				</div>

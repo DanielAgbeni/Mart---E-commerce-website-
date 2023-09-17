@@ -5,15 +5,21 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Footer from './components/Footer'
 import NewItem from './components/NewItem'
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {
+	Outlet,
+	RouterProvider,
+	ScrollRestoration,
+	createBrowserRouter,
+} from 'react-router-dom'
 import Cart from './pages/Cart'
 import Signin from './pages/Signin'
 import { productData } from './api/Api'
 import Item from './components/Item'
 const Layout = () => {
 	return (
-		<div>
+		<div className='bg-gray-100'>
 			<Header />
+			<ScrollRestoration />
 			<Outlet />
 			<Footer />
 		</div>

@@ -18,6 +18,8 @@ export const shop = [
 		price: 199,
 		isNew: true,
 		oldPrice: 250,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 2,
@@ -27,6 +29,8 @@ export const shop = [
 		price: 59,
 		isNew: true,
 		oldPrice: 80,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 3,
@@ -36,6 +40,8 @@ export const shop = [
 		price: 50,
 		isNew: true,
 		oldPrice: 70,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 4,
@@ -45,6 +51,8 @@ export const shop = [
 		price: 199,
 		isNew: true,
 		oldPrice: 200,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 5,
@@ -54,6 +62,8 @@ export const shop = [
 		price: 30,
 		isNew: true,
 		oldPrice: 50,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 6,
@@ -63,6 +73,8 @@ export const shop = [
 		price: 200,
 		isNew: false,
 		oldPrice: 250,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 7,
@@ -72,6 +84,8 @@ export const shop = [
 		price: 220,
 		isNew: true,
 		oldPrice: 350,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 8,
@@ -79,8 +93,10 @@ export const shop = [
 		category: 'Assesories',
 		image: na3,
 		price: 150,
-		isNew: true,
+		isNew: false,
 		oldPrice: 120,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 	{
 		id: 9,
@@ -90,6 +106,8 @@ export const shop = [
 		price: 30,
 		isNew: true,
 		oldPrice: 50,
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolore, sunt mollitia suscipit odit facilis possimus reiciendis pariatur amet ratione.',
 	},
 ]
 export const categories = [
