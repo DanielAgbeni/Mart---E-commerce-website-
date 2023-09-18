@@ -32,24 +32,26 @@ const Footer = () => {
 						<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
 						<img src={Logo} alt='' className='w-10' />
 					</div>
-					<p>&copy; Daniel Agbeni</p>
-					<img src={paymentCard} alt='' className='w-56' />
-					<div className='flex gap-5 text-2xl text-gray-500'>
-						<FaFacebook className='hover:text-white duration-300 cursor-pointer' />
-						<FaGithub className='hover:text-white duration-300 cursor-pointer' />
-						<FaTwitter className='hover:text-white duration-300 cursor-pointer' />
-						<FaInstagram className='hover:text-white duration-300 cursor-pointer' />
-						<FaYoutube className='hover:text-white duration-300 cursor-pointer' />
+					<div className='text-base flex flex-col gap-2 items-center justify-center'>
+						<p>&copy; Daniel Agbeni</p>
+						<img src={paymentCard} alt='' className='w-56 h-10' />
+						<div className='flex gap-5 text-2xl text-gray-500'>
+							<FaFacebook className='hover:text-white duration-300 cursor-pointer' />
+							<FaGithub className='hover:text-white duration-300 cursor-pointer' />
+							<FaTwitter className='hover:text-white duration-300 cursor-pointer' />
+							<FaInstagram className='hover:text-white duration-300 cursor-pointer' />
+							<FaYoutube className='hover:text-white duration-300 cursor-pointer' />
+						</div>
 					</div>
 				</div>
 				<div className='flex flex-col gap-2 '>
 					<h2 className='text-xl font-bold text-white font-bodyFont mb-4 mx-auto mt-4'>
 						Locate Us
 					</h2>
-					<div className='text-base flex flex-col gap-2'>
+					<div className='text-base flex flex-col gap-2 items-center justify-center'>
 						<p className='flex items-center'>
-							<MdLocationPin className='text-xl' /> No9. Agbeni Str, Orimerunmu,
-							Ogun State
+							<MdLocationPin className='text-xl text-center' /> No9. Agbeni Str,
+							Orimerunmu, Ogun State
 						</p>
 						<p className='flex items-center'>
 							<FaMobile className='text-xl' /> +2349041995875
@@ -66,7 +68,7 @@ const Footer = () => {
 					<h2 className='text-xl font-bold text-white font-bodyFont mb-4 mx-auto mt-4'>
 						Profile
 					</h2>
-					<div className='text-base flex flex-col gap-2'>
+					<div className='text-base flex flex-col gap-2 items-center justify-center'>
 						<p className='flex gap-1 hover:text-white duration-300 cursor-pointer items-center'>
 							<FaUser className='text-xl' />
 							<span>Account</span>

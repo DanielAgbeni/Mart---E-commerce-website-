@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify'
-import { addToCart } from '../redux/martSlice'
+import { addToCart, decrementQty, increamentQty } from '../redux/martSlice'
 
 const Item = () => {
 	const [details, setDetails] = useState({})
@@ -19,9 +19,29 @@ const Item = () => {
 
 	const qtyMinus = () => {
 		setQty(qty == 1 ? 1 : qty - 1)
+		dispatch(
+			decrementQty({
+				id: details.id,
+				title: details.title,
+				image: details.image,
+				price: details.price,
+				quantity: qty,
+				description: details.description,
+			})
+		)
 	}
 	const qtyAdd = () => {
 		setQty(qty + 1)
+		dispatch(
+			increamentQty({
+				id: details.id,
+				title: details.title,
+				image: details.image,
+				price: details.price,
+				quantity: qty,
+				description: details.description,
+			})
+		)
 	}
 	// console.log(qty)
 	const dispatch = useDispatch()
