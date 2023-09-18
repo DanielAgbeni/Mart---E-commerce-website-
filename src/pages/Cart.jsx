@@ -89,11 +89,11 @@ const Cart = () => {
 										<div className='flex items-center justify-center gap-5'>
 											<p>${item.price}</p>
 											<div className='flex items-center gap-4 border-solid border-[2px] px-3'>
-												<p className='text-base'>Quantity</p>
+												<p className='text-xl'>Quantity</p>
 												<div className='flex items-center gap-4'>
 													<button>
 														<FaMinus
-															className='active:text-white active:bg-black'
+															className='active:text-white active:bg-black text-xl'
 															onClick={() => {
 																dispatch(
 																	decrementQty({
@@ -108,10 +108,10 @@ const Cart = () => {
 															}}
 														/>{' '}
 													</button>
-													<p className='font-bold'>{item.quantity}</p>
+													<p className='font-bold text-xl'>{item.quantity}</p>
 													<button>
 														<FaPlus
-															className='active:text-white active:bg-black'
+															className='active:text-white active:bg-black text-xl'
 															onClick={() => {
 																dispatch(
 																	increamentQty({
@@ -151,7 +151,7 @@ const Cart = () => {
 				</div>
 				{/* Total section */}
 				{tot ? (
-					<div className='px-10 h-[400px] py-14 flex flex-col gap-7 bg-slate-200 rounded-md mt-10'>
+					<div className='px-10 h-[400px] py-14 flex flex-col gap-7 bg-slate-200 rounded-md mt-10 lg:fixed right-1'>
 						<p className='text-3xl font-semibold'>Cart Total</p>
 						<div className='flex items-center gap-28'>
 							<p className='text-xl'>subtotal</p>
@@ -161,7 +161,7 @@ const Cart = () => {
 							<p className='text-xl'>Shipping</p>
 							<p className='text-xl font-semibold'>$10</p>
 						</div>
-						<div className='h-1 bg-black'></div>
+						<div className='h-2 bg-black'></div>
 						<div className='flex items-center justify-between'>
 							<p className='text-xl'>Total</p>
 							<p>-</p>

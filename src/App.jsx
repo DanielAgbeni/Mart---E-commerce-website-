@@ -18,7 +18,7 @@ import Item from './components/Item'
 import 'react-toastify/dist/ReactToastify.css'
 const Layout = () => {
 	return (
-		<div className='bg-gray-100'>
+		<div className='bg-gray-100 w-full'>
 			<Header />
 			<ScrollRestoration />
 			<Outlet />

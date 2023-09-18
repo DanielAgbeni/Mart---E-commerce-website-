@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
 					alt=''
 				/>
 			</div>
-			<div className='w-full border-[1px] px-2 py-4'>
+			<div className='w-full border-[1px] px-4 py-4'>
 				<div className='flex justify-between items-center'>
 					<div>
 						<h2 className='font-bodyFont text-base font-bold'>
@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
 									})
 								) & toast.success(`${product.title} is added`)
 							}>
-							<FaCartPlus className='text-xl hover:text-2xl duration-500 md:text-2xl' />
+							<FaCartPlus className='text-3xl active:text-2xl duration-500 md:text-2xl' />
 						</p>
 					</div>
 				</div>

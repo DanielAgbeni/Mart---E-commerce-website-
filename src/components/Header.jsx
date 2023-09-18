@@ -26,7 +26,7 @@ const Header = () => {
 	const productData = useSelector((state) => state.mart.productData)
 	console.log(productData)
 	return (
-		<div className='w-full h-20 bg-gray-200 border-b-[1px] border-b-gray-800 font-bodyFont sticky top-0 z-10 md:w-screen'>
+		<div className='w-screen h-20 bg-gray-200 border-b-[1px] border-b-gray-800 font-bodyFont sticky top-0 z-10 md:w-screen'>
 			<div className='max-w-screen-xl h-full mx-auto hidden md:flex items-center justify-between'>
 				<div className='flex items-center'>
 					<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
