@@ -1,6 +1,6 @@
 /** @format */
 
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import martReducer from './martSlice'
 import persistReducer from 'redux-persist/es/persistReducer'
 import {

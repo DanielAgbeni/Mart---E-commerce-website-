@@ -17,16 +17,18 @@ import { Link } from 'react-router-dom'
 import { categories } from '../api/data'
 import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
+import { FaUser } from 'react-icons/fa'
 
 const Header = () => {
 	const [menu, setMenu] = useState(false)
+	const userInfo = useSelector((state) => state.mart.userInfo)
 	const toggleMenu = () => {
 		setMenu(!menu)
 	}
 	const productData = useSelector((state) => state.mart.productData)
 	console.log(productData)
 	return (
-		<div className='w-screen h-20 bg-gray-200 border-b-[1px] border-b-gray-800 font-bodyFont sticky top-0 z-10 md:w-screen'>
+		<div className='w-full h-20 bg-gray-200 border-b-[1px] border-b-gray-800 font-bodyFont sticky top-0 z-10 md:w-screen'>
 			<div className='max-w-screen-xl h-full mx-auto hidden md:flex items-center justify-between'>
 				<div className='flex items-center'>
 					<span className='font-bold text-2xl text-purple-600'>Mart</span>{' '}
@@ -69,13 +71,17 @@ const Header = () => {
 						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>
 							Shop
 						</li>
-						<Link to={'/additem'}>
-							<li
-								className='text-black
+						{userInfo && userInfo.id === 'Y0kIuLssFabWBKlgtGj7KAK6udI3' ? (
+							<Link to={'/additem'}>
+								<li
+									className='text-black
 						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 text-2xl'>
-								<MdAddBox />
-							</li>
-						</Link>
+									<MdAddBox />
+								</li>
+							</Link>
+						) : (
+							''
+						)}
 					</ul>
 					<Link to={'/cart'}>
 						<div className='relative'>
@@ -91,9 +97,14 @@ const Header = () => {
 							)}
 						</div>
 					</Link>
+					{userInfo && userInfo.name ? (
+						<p>{`Welcome, ${userInfo.name}`}</p>
+					) : (
+						''
+					)}
 					<Link to={'/signin'}>
 						<img
-							src={dp}
+							src={userInfo ? userInfo.image : <FaUser />}
 							alt=''
 							className='w-10 min-w-[40px] h-10 min-h-[40px] rounded-full drop-shadow-2xl cursor-pointer'
 						/>
@@ -135,14 +146,16 @@ const Header = () => {
 						<Link to={'/signin'}>
 							<motion.img
 								whileTap={{ scale: 0.8 }}
-								src={dp}
+								src={userInfo.image}
 								alt='Avatar'
 								className='w-10 min-w-[60px] h-10 min-h-[60px] mt-3 rounded-full mx-auto drop-shadow-3xl cursor-pointer '
 								onClick={() => setMenu(false)}
 								// title={user ? user.displayName : 'Not Signed in'}
 							/>
 						</Link>
-						<p className='item-center justify-center mx-auto'>Daniel Agbeni</p>
+						<p className='item-center justify-center mx-auto py-3'>
+							{userInfo.name}
+						</p>
 						<ul className='flex flex-col gap-1 '>
 							<Link to={'/'}>
 								<li
@@ -181,14 +194,18 @@ const Header = () => {
 								onClick={() => setMenu(false)}>
 								Shop
 							</li>
-							<Link to={'/additem'}>
-								<li
-									className='text-base text-black
-						 font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
-									onClick={() => setMenu(false)}>
-									Add Item
-								</li>
-							</Link>
+							{userInfo && userInfo.id === 'Y0kIuLssFabWBKlgtGj7KAK6udI3' ? (
+								<Link to={'/additem'}>
+									<li
+										className='text-base text-black
+							font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300 transition-all ease-in-out px-4 py-2'
+										onClick={() => setMenu(false)}>
+										Add Item
+									</li>
+								</Link>
+							) : (
+								''
+							)}
 						</ul>
 					</motion.div>
 				)}

@@ -45,8 +45,21 @@ export const martSlice = createSlice({
 				item.quantity == 1 ? 1 : item.quantity--
 			}
 		},
+		addUser: (state, action) => {
+			state.userInfo = action.payload
+		},
+		removerUser: (state) => {
+			state.userInfo = null
+		},
 	},
 })
-export const { addToCart, deleteItem, resetCart, increamentQty, decrementQty } =
-	martSlice.actions
+export const {
+	addToCart,
+	deleteItem,
+	resetCart,
+	increamentQty,
+	decrementQty,
+	addUser,
+	removerUser,
+} = martSlice.actions
 export default martSlice.reducer

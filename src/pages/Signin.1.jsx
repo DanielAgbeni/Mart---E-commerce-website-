@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/martSlice'
 import { useNavigate } from 'react-router-dom'
 
-const Signin = () => {
+export const Signin = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const auth = getAuth()
@@ -88,5 +88,3 @@ const Signin = () => {
 		</div>
 	)
 }
-
-export default Signin
