@@ -23,9 +23,12 @@ import { emptyCart } from '../assets/images'
 let items = []
 const Cart = () => {
 	const productData = useSelector((state) => state.mart.productData)
+	const userInfo = useSelector((state) => state.mart.userInfo)
+
 	const [qty, setQty] = useState(1)
 	const [tot, setTot] = useState(0)
 	const dispatch = useDispatch()
+	const [checkout, setCheckout] = useState(false)
 	useEffect(() => {
 		let totalPrice = 0
 		productData.map((item) => {
@@ -35,7 +38,13 @@ const Cart = () => {
 		setTot(totalPrice)
 	}, [productData])
 	console.log(tot)
-
+	const handleCheckout = () => {
+		if (userInfo) {
+			setCheckout(true)
+		} else {
+			toast.error('Sign in to checkout')
+		}
+	}
 	return (
 		<div>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full px-7 py-6'>
@@ -167,8 +176,10 @@ const Cart = () => {
 							<p>-</p>
 							<p className='text-xl font-bold'>${tot + 10}</p>
 						</div>
-						<button className='text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-800 duration-300'>
-							Proceed to checkout
+						<button
+							onClick={handleCheckout}
+							className='text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-800 duration-300'>
+							{userInfo ? 'Proceed to checkout' : 'Sign in to checkout'}
 						</button>
 					</div>
 				) : (

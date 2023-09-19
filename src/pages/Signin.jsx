@@ -10,7 +10,7 @@ import {
 } from 'firebase/auth'
 import { ToastContainer, toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
-import { addUser } from '../redux/martSlice'
+import { addUser, removerUser } from '../redux/martSlice'
 import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
@@ -52,8 +52,15 @@ const Signin = () => {
 		const auth = getAuth()
 		localStorage.clear()
 
-		dispatch(removerUser(null))
-		toast.success('Sign-out successful.')
+		signOut(auth)
+			.then(() => {
+				dispatch(removerUser())
+				toast.success('Sign-out successful.')
+			})
+			.catch((error) => {
+				console.log(error)
+				toast.error('An error happened.')
+			})
 	}
 	return (
 		<div className='w-full flex flex-col items-center justify-center gap-10 py-20'>
