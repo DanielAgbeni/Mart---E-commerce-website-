@@ -50,13 +50,10 @@ const Signin = () => {
 	}
 	const handleSignOut = () => {
 		const auth = getAuth()
-		signOut(auth)
-			.then(() => {
-				toast.success('Sign-out successful.')
-			})
-			.catch((error) => {
-				toast.error('An error happened.')
-			})
+		localStorage.clear()
+
+		dispatch(removerUser(null))
+		toast.success('Sign-out successful.')
 	}
 	return (
 		<div className='w-full flex flex-col items-center justify-center gap-10 py-20'>

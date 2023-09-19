@@ -18,6 +18,7 @@ import { categories } from '../api/data'
 import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import { FaUser } from 'react-icons/fa'
+import user from '../assets/user.png'
 
 const Header = () => {
 	const [menu, setMenu] = useState(false)
@@ -104,7 +105,7 @@ const Header = () => {
 					)}
 					<Link to={'/signin'}>
 						<img
-							src={userInfo ? userInfo.image : <FaUser />}
+							src={userInfo ? userInfo.image : user}
 							alt=''
 							className='w-10 min-w-[40px] h-10 min-h-[40px] rounded-full drop-shadow-2xl cursor-pointer'
 						/>
@@ -146,7 +147,7 @@ const Header = () => {
 						<Link to={'/signin'}>
 							<motion.img
 								whileTap={{ scale: 0.8 }}
-								src={userInfo.image}
+								src={userInfo ? userInfo.image : user}
 								alt='Avatar'
 								className='w-10 min-w-[60px] h-10 min-h-[60px] mt-3 rounded-full mx-auto drop-shadow-3xl cursor-pointer '
 								onClick={() => setMenu(false)}
@@ -154,7 +155,7 @@ const Header = () => {
 							/>
 						</Link>
 						<p className='item-center justify-center mx-auto py-3'>
-							{userInfo.name}
+							{userInfo ? userInfo.name : 'Not Signed in'}
 						</p>
 						<ul className='flex flex-col gap-1 '>
 							<Link to={'/'}>
